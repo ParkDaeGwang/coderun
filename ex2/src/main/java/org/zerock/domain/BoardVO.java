@@ -10,8 +10,8 @@ public class BoardVO {
 	private Long bno;
 	private String title;
 	private String content;
-	private Date regdate;
-	private Date updatedate;
+	private Date regDate;
+	private Date updateDate;
 	private String writer;
 	
 }

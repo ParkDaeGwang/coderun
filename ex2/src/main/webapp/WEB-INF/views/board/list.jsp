@@ -44,9 +44,9 @@
 										</td>
 										<td><c:out value="${board.content }"></c:out></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd"
-												value="${board.regdate }"></fmt:formatDate></td>
+												value="${board.regDate }"></fmt:formatDate></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd"
-												value="${board.updatedate }"></fmt:formatDate></td>
+												value="${board.updateDate }"></fmt:formatDate></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -62,19 +62,10 @@
 											aria-hidden="true">&times;</button>
 										<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 									</div>
-									<div class="modal-body">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-										ea commodo consequat. Duis aute irure dolor in reprehenderit
-										in voluptate velit esse cillum dolore eu fugiat nulla
-										pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-										in culpa qui officia deserunt mollit anim id est laborum.</div>
+									<div class="modal-body">
+									처리가 완료 되었습니다.
 									<div class="modal-footer">
-										<button type="button" class="btn btn-default"
-											data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save
-											changes</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 									</div>
 								</div>
 								<!-- /.modal-content -->
@@ -97,14 +88,12 @@
 </html>
 
 <script type="text/javascript">
+	
 	$(document).ready(function() {
-		
 		var result = '<c:out value="${result}"/>';
-		
-		checkModal(result);
+		console.log(history.state);
 		
 		history.replaceState({},null,null);
-		
 		function checkModal(){
 			
 			if(result === '' || history.state){
