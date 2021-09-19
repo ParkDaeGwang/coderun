@@ -17,6 +17,6 @@ insert into tbl_board(bno, title, content, writer)
 values (SEQ_BOARD.nextval, '테스트 제목', '테스트 내용', 'user00');
 
 
-select * from tbl_board where bno =5;
+select * from tbl_board where bno =5; aaa
 
 
