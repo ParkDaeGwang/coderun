@@ -14,9 +14,16 @@ primary key (bno);
 
 
 insert into tbl_board(bno, title, content, writer)
-values (SEQ_BOARD.nextval, '테스트 제목', '테스트 내용', 'user00');
+select SEQ_BOARD.nextval, '테스트 제목', '테스트 내용', 'user00'
+FROM TBL_BOARD;
 
+SELECT RN, BNO, TITLE, CONTENT
+FROM 
+    (SELECT /*+ INDEX_DESC(TBL_BOARD PK_BOARD)*/
+        ROWNUM RN, BNO, TITLE, CONTENT 
+    FROM TBL_BOARD
+    WHERE ROWNUM <= 100)
+WHERE RN > 50;
 
-select * from tbl_board where bno =5;
-
-
+SELECT * FROM tbl_board ORDER BY BNO;
+commit;

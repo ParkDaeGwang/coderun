@@ -39,7 +39,7 @@
 								<c:forEach items="${list }" var="board">
 									<tr>
 										<td><c:out value="${board.bno }"></c:out></td>
-										<td><a href='/board/get?bno=<c:out value="${board.bno }"/>'>
+										<td><a href='/board/get?bno=<c:out value="${board.bno }"/>'></a>
 										<c:out value="${board.title }"></c:out>
 										</td>
 										<td><c:out value="${board.content }"></c:out></td>
@@ -51,7 +51,26 @@
 								</c:forEach>
 							</tbody>
 						</table>
-
+						
+						<div class="row">
+							<div class="pull-right">
+								<ul class="pagination">
+									<c:if test="${pageMaker.prev }">
+										<li class="paginate_button previous"><a href="#">Previous</a></li>
+									</c:if>
+									
+									<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+										<li class="paginate_button"><a href="#">${num }</a></li>
+									</c:forEach>
+									
+									<c:if test="${pageMaker.next }">
+										<li class="paginate_button next"><a href="#">Next</a></li>
+									</c:if>
+								</ul>
+							</div>
+							<!-- end Pagination -->
+						</div>
+						
 						<!-- Modal -->
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
@@ -91,8 +110,8 @@
 	
 	$(document).ready(function() {
 		var result = '<c:out value="${result}"/>';
-		console.log(history.state);
 		
+		checkModal();
 		history.replaceState({},null,null);
 		function checkModal(){
 			
