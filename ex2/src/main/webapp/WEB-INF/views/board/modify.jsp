@@ -21,6 +21,10 @@
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<form role="form" action="/board/modify" method="post">
+							<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"/>'>
+							<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'>
+							<input type="hidden" name="keyword" value="<c:out value="${cri.keyword }"/>">
+							<input type="hidden" name="type" value="<c:out value="${cri.type }"/>">
 							<div class="form-group">
 								<label>bno</label> <input class="form-control" name="bno" value='<c:out value="${board.bno }"/>' readonly/>
 							</div>
@@ -42,9 +46,9 @@
 								<label>UpdateDate</label><input class="form-control" name="updateDate" value='<fmt:formatDate pattern='yyyy/MM/dd' value="${board.updateDate}"/>' readonly/>
 							</div>
 						</form>
-						<button type="submit" data-oper="modify" class="btn btn-default" onclick="location.href='/board/modify'">Modify</button>
-						<button type="submit" data-oper="remove" class="btn btn-danger" onclick="location.href='/board/remove'">Remove</button>
-						<button type="submit" data-oper="remove" class="btn btn-submit" onclick="location.href='/board/list'">List</button>
+						<button type="submit" data-oper="modify" class="btn btn-default">Modify</button>
+						<button type="submit" data-oper="remove" class="btn btn-danger">Remove</button>
+						<button type="submit" data-oper="list" class="btn btn-submit">List</button>
 					</div>
 					<!-- /.row -->
 				</div>
@@ -74,7 +78,15 @@
 				formObj.attr("action","/board/remove");
 			}else if(operation === 'list'){
 				formObj.attr("action","/board/list").attr("method","get");
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				var keywordTag = $("input[name='keyword']").clone();
+				var typeTag = $("input[name='type']").clone();
 				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
 			}
 			
 			formObj.submit();

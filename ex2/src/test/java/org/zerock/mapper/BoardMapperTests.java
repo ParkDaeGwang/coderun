@@ -80,16 +80,35 @@ public class BoardMapperTests {
 //		log.info("UPDATE COUNT :" + count);
 //	}
 	
+//	@Test
+//	public void testPaging() {
+//		Criteria cri = new Criteria();
+//		
+//		//3페이지, 10개씩 
+//		cri.setPageNum(3);
+//		cri.setAmount(10);
+//		
+//		List<BoardVO> list = mapper.getListWithPaging(cri);
+//		
+//		list.forEach(board -> log.info(board));
+//	}
+	
+//	@Test
+//	public void testSearch() {
+//		Criteria cri = new Criteria();
+//		cri.setKeyword("새로");
+//		cri.setType("T");
+//		
+//		List<BoardVO> list = mapper.getListWithPaging(cri);
+//		
+//		list.forEach(board -> log.info(board));
+//	}
+	
 	@Test
-	public void testPaging() {
+	public void testUriComponent() {
 		Criteria cri = new Criteria();
-		
-		//3페이지, 10개씩 
-		cri.setPageNum(3);
-		cri.setAmount(10);
-		
-		List<BoardVO> list = mapper.getListWithPaging(cri);
-		
-		list.forEach(board -> log.info(board));
+		cri.setKeyword("새로");
+		cri.setType("T");
+		log.info(cri.getListLink());
 	}
 }
