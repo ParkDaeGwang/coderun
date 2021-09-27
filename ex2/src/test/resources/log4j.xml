@@ -44,7 +44,7 @@
 	</logger> 
     
 	<logger name="jdbc.resultset" additivity="false">
-		<level value="info" />
+		<level value="warn" />
 		<appender-ref ref="console"/> 
 	</logger>
 	
@@ -54,12 +54,12 @@
 	</logger>
      
 	<logger name="jdbc.resultsettable" additivity="false"> 
-		<level value="info"/>  
+		<level value="warn"/>  
 		<appender-ref ref="console"/> 
 	</logger> 
 	
 	<logger name="jdbc.sqltiming" additivity="false">
-		<level value="info" />
+		<level value="warn" />
 		<appender-ref ref="console"/> 
 	</logger>
 
