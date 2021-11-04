@@ -55,7 +55,7 @@
 	<c:import url="../includes/footer.jsp"></c:import>
 </body>
 </html>
-
+<script type="text/javascript" src="/resources/js/reply.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		
@@ -74,4 +74,58 @@
 			
 		});
 	})
+	
+	$(document).ready(function(){
+		
+		console.log("=========");
+		console.log("JS TEST");
+		
+		var bnoValue = "<c:out value='${board.bno}'/>";
+		
+		//for replyService add test
+		
+		/* 
+		replyService.add(
+			{reply:"JS TEST", replyer:"tester", bno: bnoValue},
+			function(result){
+				alert("Result : " + result);
+			}
+		); 
+			
+		replyService.getList(
+			{bno:bnoValue, page : 1,},
+			function(list){
+			
+				for(var i=0, len = list.length || 0; i < len; i++){
+					console.log(list[i]);
+				}
+			
+			}		
+		)
+		replyService.remove(
+			51,
+			function(count){
+				console.log(count);
+				if(count === 'success'){
+					alert("REMOVE");
+				}
+			},
+			function(err){
+				alert("ERROR");
+			}
+		)
+		
+		replyService.update(
+				{rno : 50, bno : bnoValue, reply : "update"},
+				function(result){
+					alert("Result : " + result);
+				}
+			); 
+		*/
+		replyService.get(10, function(data){
+			console.log(data);
+		})
+		
+	})
+	
 </script>
